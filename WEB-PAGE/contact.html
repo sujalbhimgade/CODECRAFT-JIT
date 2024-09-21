@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - WEBTECH SOLUTION</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="company-name">WEBTECH SOLUTION</span>
+        </div>
+        <ul class="navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+   
+    <section class="content">
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you! Whether you have a question about our services, need support, or just want to chat, feel free to get in touch.</p>
+
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> support@webtech.com</p>
+        <p><strong>Phone:</strong> +123 456 7890</p>
+        <p><strong>Business Hours:</strong> Monday - Friday: 9 AM - 6 PM</p>
+
+        <h2>Leave Us a Message</h2>
+        <form action="#" method="post" onsubmit="return validateForm()">
+            <p id="error-message" style="color:red;"></p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br>
+
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 WEBTECH SOLUTION. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            const errorMessage = document.getElementById("error-message");
+
+            errorMessage.textContent = ""; 
+            if (name === "" || email === "" || message === "") {
+                errorMessage.textContent = "All fields are required.";
+                return false; 
+            }
+
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                errorMessage.textContent = "Please enter a valid email address.";
+                return false; 
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
